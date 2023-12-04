@@ -1,17 +1,38 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        Random rand = new Random();
+        int[] array = new int[5];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = rand.nextInt(10) + 1;
         }
+        stampaArray(array);
+
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Inserisci un numero da inserire nell array (6 per uscire):");
+            int num = scanner.nextInt();
+            if (num == 6) {
+                break;
+            }
+            System.out.println("Inserisci la posizione in cui inserire il numero nell array :");
+            int pos = scanner.nextInt();
+            try {
+                array[pos - 1] = num;
+                stampaArray(array);
+            } catch (ArrayIndexOutOfBoundsException e) {
+            }
+        }
+        scanner.close();
+    }
+
+    private static void stampaArray(int[] array) {
+        System.out.print("Array: ");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
     }
 }
