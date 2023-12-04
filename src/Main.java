@@ -13,6 +13,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Inserisci un numero da inserire nell array (6 per uscire):");
+            System.out.println("Inserisci un numero da inserire nell array (6 per uscire):");
             int num = scanner.nextInt();
             if (num == 6) {
                 break;
